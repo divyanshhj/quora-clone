@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { type Question } from "../utils/storage";
+import { getQuestions, saveQuestions, type Question } from "../utils/storage";
+import BookMarkedbtn from "./BookMarkedbtn";
 
 interface QuestionCardProps {
   question: Question;
@@ -26,6 +27,7 @@ const QuestionCard = ({ question, index }: QuestionCardProps) => {
           >
             Add Answer
           </Link>
+          <BookMarkedbtn question={question} />
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ const Navbar = () => {
         <div className="space-x-3">
           <Link to="/">Home</Link>
           <Link to="/ask">Ask</Link>
+          <Link to="/bookmark">Bookmarks</Link>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ export interface Question {
   title: string;
   description: string;
   answers: Answer[];
+  isBookmarked?: boolean;
 }
 
 export const getQuestions = (): Question[] => {
