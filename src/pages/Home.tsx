@@ -7,7 +7,10 @@ const HomePage = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
 
   useEffect(() => {
-    setQuestions(getQuestions());
+    const data = getQuestions();
+    //  convert hash → array
+    const arr = Object.values(data);
+    setQuestions(arr);
   }, []);
 
   return (

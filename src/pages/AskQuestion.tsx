@@ -7,13 +7,13 @@ const AskQuestion = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
+  const data = getQuestions();
 
   const handleSubmit = () => {
     if (!title.trim() || !description.trim()) {
       alert("Please fill in both fields");
       return;
     }
-    const questions = getQuestions();
 
     const newQuestion: Question = {
       id: Date.now(),
@@ -21,8 +21,13 @@ const AskQuestion = () => {
       description,
       answers: [],
     };
+    //   with array storage
+    // saveQuestions([...data, newQuestion]);
 
-    saveQuestions([...questions, newQuestion]);
+    // with hash storage
+    data[newQuestion.id] = newQuestion;
+    saveQuestions(data);
+
     alert("Question added successfully!");
     navigate("/");
   };

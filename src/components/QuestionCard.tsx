@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getQuestions, saveQuestions, type Question } from "../utils/storage";
+import { type Question } from "../utils/storage";
 import BookMarkedbtn from "./BookMarkedbtn";
 
 interface QuestionCardProps {

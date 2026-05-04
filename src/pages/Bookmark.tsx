@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { Question } from "../utils/storage";
+import { getQuestions, type Question } from "../utils/storage";
 
 const Bookmark = () => {
   const [bookmarkedQuestions, setBookmarkedQuestions] = useState<Question[]>(
@@ -7,10 +7,14 @@ const Bookmark = () => {
   );
 
   useEffect(() => {
-    const questions = JSON.parse(
-      localStorage.getItem("questions") || "[]",
-    ) as Question[];
-    const bookmarked = questions.filter((q) => q.isBookmarked);
+    // with array storage
+    // const questions = getQuestions() as Question[];
+    // const bookmarked = questions.filter((q) => q.isBookmarked);
+    // setBookmarkedQuestions(bookmarked);
+
+    // with hash storage
+    const data = getQuestions();
+    const bookmarked = Object.values(data).filter((q) => q.isBookmarked);
     setBookmarkedQuestions(bookmarked);
   }, []);
 

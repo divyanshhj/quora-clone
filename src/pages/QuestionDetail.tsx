@@ -4,9 +4,13 @@ import TitleBar from "../components/TitleBar";
 
 const QuestionDetail = () => {
   const { id } = useParams();
-  const questions = getQuestions();
+  const data = getQuestions();
 
-  const question = questions.find((q) => q.id === Number(id)) as Question;
+  // with array storage
+  // const question = data.find((q) => q.id === Number(id)) as Question;
+
+  // with hash storage
+  const question = data[Number(id)] as Question;
 
   return (
     <div className="p-4 max-w-xl mx-auto">
